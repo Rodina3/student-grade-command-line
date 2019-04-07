@@ -1,6 +1,6 @@
 package com.tw.repo;
 
-import com.tw.model.Student;
+import com.tw.core.model.Student;
 
 import java.util.Optional;
 

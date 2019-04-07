@@ -1,4 +1,4 @@
-package com.tw.model;
+package com.tw.core.model;
 
 public class Score {
     private String subject;

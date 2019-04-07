@@ -1,7 +1,7 @@
 package com.tw.repo;
 
-import com.tw.model.Score;
-import com.tw.model.Student;
+import com.tw.core.model.Score;
+import com.tw.core.model.Student;
 import org.junit.Before;
 import org.junit.Test;
 
