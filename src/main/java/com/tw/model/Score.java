@@ -2,7 +2,12 @@ package com.tw.model;
 
 public class Score {
     private String subject;
-    private String grade;
+    private int grade;
+
+    public Score(String subject, int grade) {
+        this.subject = subject;
+        this.grade = grade;
+    }
 
     public String getSubject() {
         return subject;
@@ -12,11 +17,11 @@ public class Score {
         this.subject = subject;
     }
 
-    public String getGrade() {
+    public int getGrade() {
         return grade;
     }
 
-    public void setGrade(String grade) {
+    public void setGrade(int grade) {
         this.grade = grade;
     }
 }

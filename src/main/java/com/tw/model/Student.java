@@ -1,14 +1,21 @@
 package com.tw.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
     private String studentNumber;
     private String name;
-    private List<Score> scores =  new ArrayList<>();
-    private float totalScore;
-    private float averageScore;
+    private List<Score> scores;
+    private int totalScore;
+    private double averageScore;
+
+    public Student(String studentNumber, String name, List<Score> scores) {
+        this.studentNumber = studentNumber;
+        this.name = name;
+        this.scores = scores;
+        this.totalScore = scores.stream().mapToInt(Score::getGrade).sum();
+        this.averageScore = (double) totalScore / scores.size();
+    }
 
     public String getStudentNumber() {
         return studentNumber;
@@ -34,19 +41,11 @@ public class Student {
         this.scores = scores;
     }
 
-    public float getTotalScore() {
+    public int getTotalScore() {
         return totalScore;
     }
 
-    public void setTotalScore(float totalScore) {
-        this.totalScore = totalScore;
-    }
-
-    public float getAverageScore() {
+    public double getAverageScore() {
         return averageScore;
-    }
-
-    public void setAverageScore(float averageScore) {
-        this.averageScore = averageScore;
     }
 }
