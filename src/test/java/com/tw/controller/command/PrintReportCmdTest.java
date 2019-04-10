@@ -36,7 +36,7 @@ public class PrintReportCmdTest {
 
         Response response = printReportCmd.exec(request);
 
-        assertThat(response.getPage(), is(PrintReportPage.success));
+        assertThat(response.getPage(), is(PrintReportPage.failed));
         assertThat(response.getStatus(), is(Status.PRINT_REPORT.toString()));
         assertTrue(response.isInputRequired());
     }

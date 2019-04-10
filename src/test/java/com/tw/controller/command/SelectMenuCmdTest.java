@@ -53,7 +53,7 @@ public class SelectMenuCmdTest {
 
         Response response = selectMenuCmd.exec(request);
 
-        assertNull(response.getPage());
+        assertThat(response.getPage(),is("Exit"));
         assertThat(response.getStatus(), is(Status.EXIT.toString()));
         assertFalse(response.isInputRequired());
     }

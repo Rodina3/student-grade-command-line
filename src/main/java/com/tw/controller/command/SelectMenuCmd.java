@@ -27,7 +27,7 @@ public class SelectMenuCmd implements Command {
                 break;
             case "3":
                 response.setStatus(EXIT.toString());
-                response.setPage(null);
+                response.setPage("Exit");
                 response.setInputRequired(false);
                 break;
             default:
