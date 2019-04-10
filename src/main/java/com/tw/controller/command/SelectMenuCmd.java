@@ -4,7 +4,7 @@ import com.tw.controller.dto.Request;
 import com.tw.controller.dto.Response;
 import com.tw.view.AddStudentPage;
 import com.tw.view.PrintReportPage;
-import com.tw.view.HomePage;
+import com.tw.view.MenuPage;
 
 import static com.tw.controller.Status.*;
 import static com.tw.controller.Status.EXIT;
@@ -31,8 +31,8 @@ public class SelectMenuCmd implements Command {
                 response.setInputRequired(false);
                 break;
             default:
-                response.setStatus(HOME.toString());
-                response.setPage(HomePage.view);
+                response.setStatus(MENU.toString());
+                response.setPage(MenuPage.view);
                 response.setInputRequired(true);
                 break;
         }

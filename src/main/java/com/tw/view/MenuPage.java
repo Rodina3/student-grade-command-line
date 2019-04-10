@@ -1,6 +1,6 @@
 package com.tw.view;
 
-public class HomePage {
+public class MenuPage {
 
     public static String view = "";
 }
