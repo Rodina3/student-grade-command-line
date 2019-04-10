@@ -7,7 +7,6 @@ import com.tw.core.model.Student;
 import com.tw.controller.exception.InputErrorException;
 import com.tw.view.AddStudentPage;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 import static com.tw.controller.Status.ADD_STUDENT;
@@ -28,12 +27,12 @@ public class AddStudentCmd implements Command {
         try {
             Student student = parseStudent(input);
             service.addStudent(student);
-            response.setPage(AddStudentPage.success);
+            response.setPage(AddStudentPage.SUCCESS_TEMPLATE);
             response.setStatus(HOME.toString());
             response.setInputRequired(false);
 
         } catch (InputErrorException ex) {
-            response.setPage(AddStudentPage.failed);
+            response.setPage(AddStudentPage.ERROR_PROMPT);
             response.setStatus(ADD_STUDENT.toString());
             response.setInputRequired(true);
         }

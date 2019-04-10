@@ -8,10 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 public class PrintReportCmdTest {
     private PrintReportCmd printReportCmd;
@@ -36,7 +34,7 @@ public class PrintReportCmdTest {
 
         Response response = printReportCmd.exec(request);
 
-        assertThat(response.getPage(), is(PrintReportPage.failed));
+        assertThat(response.getPage(), is(PrintReportPage.ERROR_PROMPT));
         assertThat(response.getStatus(), is(Status.PRINT_REPORT.toString()));
         assertTrue(response.isInputRequired());
     }

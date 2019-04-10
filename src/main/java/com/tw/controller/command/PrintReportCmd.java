@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static com.tw.controller.Status.HOME;
+import static java.lang.String.format;
 
 public class PrintReportCmd implements Command {
     private Service service = new Service();
@@ -35,16 +36,23 @@ public class PrintReportCmd implements Command {
             response.setInputRequired(false);
 
         } catch (Exception ex) {
-            response.setPage(PrintReportPage.failed);
+            response.setPage(PrintReportPage.ERROR_PROMPT);
             response.setStatus(Status.PRINT_REPORT.toString());
             response.setInputRequired(true);
         }
         return response;
     }
 
-    // TODO: 2019-04-10 report template
     private String printReport(Report report) {
-        return PrintReportPage.success + report;
+        String studentInfo = report.getStudents()
+                .stream()
+                .map(s -> format(PrintReportPage.RECORD_TEMPLATE, s.getName(),
+                        s.getScores().get(0).getGrade(), s.getScores().get(1).getGrade(),
+                        s.getScores().get(2).getGrade(), s.getScores().get(3).getGrade(),
+                        s.getAverageScore(), s.getTotalScore()))
+                .collect(Collectors.joining());
+
+        return format(PrintReportPage.REPORT_TEMPLATE, studentInfo, report.getAverage(), report.getMedian());
     }
 
 

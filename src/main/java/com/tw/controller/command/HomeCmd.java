@@ -10,7 +10,7 @@ public class HomeCmd implements Command {
     public Response exec(Request request) {
         Response response = new Response();
         response.setStatus(Status.MENU.toString());
-        response.setPage(MenuPage.view);
+        response.setPage(MenuPage.MENU);
         response.setInputRequired(true);
         return response;
     }

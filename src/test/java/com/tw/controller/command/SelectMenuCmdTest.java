@@ -31,7 +31,7 @@ public class SelectMenuCmdTest {
 
         Response response = selectMenuCmd.exec(request);
 
-        assertThat(response.getPage(), is(AddStudentPage.view));
+        assertThat(response.getPage(), is(AddStudentPage.PROMPT));
         assertThat(response.getStatus(), is(Status.ADD_STUDENT.toString()));
         assertTrue(response.isInputRequired());
     }
@@ -42,7 +42,7 @@ public class SelectMenuCmdTest {
 
         Response response = selectMenuCmd.exec(request);
 
-        assertThat(response.getPage(), is(PrintReportPage.view));
+        assertThat(response.getPage(), is(PrintReportPage.PROMPT));
         assertThat(response.getStatus(), is(Status.PRINT_REPORT.toString()));
         assertTrue(response.isInputRequired());
     }

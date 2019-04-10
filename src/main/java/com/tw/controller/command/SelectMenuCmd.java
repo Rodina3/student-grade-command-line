@@ -17,12 +17,12 @@ public class SelectMenuCmd implements Command {
         switch (request.getInput()) {
             case "1":
                 response.setStatus(ADD_STUDENT.toString());
-                response.setPage(AddStudentPage.view);
+                response.setPage(AddStudentPage.PROMPT);
                 response.setInputRequired(true);
                 break;
             case "2":
                 response.setStatus(PRINT_REPORT.toString());
-                response.setPage(PrintReportPage.view);
+                response.setPage(PrintReportPage.PROMPT);
                 response.setInputRequired(true);
                 break;
             case "3":
@@ -32,7 +32,7 @@ public class SelectMenuCmd implements Command {
                 break;
             default:
                 response.setStatus(MENU.toString());
-                response.setPage(MenuPage.view);
+                response.setPage(MenuPage.MENU);
                 response.setInputRequired(true);
                 break;
         }

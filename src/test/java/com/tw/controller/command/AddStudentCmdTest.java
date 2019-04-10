@@ -30,7 +30,7 @@ public class AddStudentCmdTest {
         Response response = addStudentCmd.exec(request);
 
         assertThat(response.getStatus(), is(Status.HOME.toString()));
-        assertThat(response.getPage(),is(AddStudentPage.success));
+        assertThat(response.getPage(),is(AddStudentPage.SUCCESS_TEMPLATE));
         assertFalse(response.isInputRequired());
     }
 
@@ -42,7 +42,7 @@ public class AddStudentCmdTest {
         Response response = addStudentCmd.exec(request);
 
         assertThat(response.getStatus(), is(Status.ADD_STUDENT.toString()));
-        assertThat(response.getPage(),is(AddStudentPage.failed));
+        assertThat(response.getPage(),is(AddStudentPage.ERROR_PROMPT));
         assertTrue(response.isInputRequired());
     }
 }
