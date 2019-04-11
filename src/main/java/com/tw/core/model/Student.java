@@ -9,6 +9,9 @@ public class Student {
     private int totalScore;
     private double averageScore;
 
+    public Student() {
+    }
+
     public Student(String studentNumber, String name, List<Score> scores) {
         this.studentNumber = studentNumber;
         this.name = name;
@@ -39,6 +42,8 @@ public class Student {
 
     public void setScores(List<Score> scores) {
         this.scores = scores;
+        this.totalScore = scores.stream().mapToInt(Score::getGrade).sum();
+        this.averageScore = (double) totalScore / scores.size();
     }
 
     public int getTotalScore() {

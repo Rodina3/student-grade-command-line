@@ -16,16 +16,16 @@ public class App {
         Router router = new Router();
         Scanner sc = new Scanner(System.in);
 
-        Status status = HOME;
-        boolean needInput = false;
+        Status currentStatus = HOME;
+        boolean isInputRequired = false;
 
-        while (status != EXIT) {
-            Request request = buildRequest(sc,status, needInput);
+        while (currentStatus != EXIT) {
+            Request request = buildRequest(sc, currentStatus, isInputRequired);
             Response response = getResponse(router, request);
 
             System.out.println(response.getPage());
-            status = Status.valueOf(response.getStatus());
-            needInput = response.isInputRequired();
+            currentStatus = Status.valueOf(response.getStatus());
+            isInputRequired = response.isInputRequired();
         }
     }
 
@@ -33,13 +33,13 @@ public class App {
         return router.dispatch(request);
     }
 
-    private static Request buildRequest(Scanner sc, Status status, boolean needInput) {
+    private static Request buildRequest(Scanner sc, Status currentStatus, boolean isInputRequired) {
         Request request = new Request();
-        if (needInput) {
+        if (isInputRequired) {
             String input = sc.nextLine();
             request.setInput(input);
         }
-        request.setCurrentStatus(status.toString());
+        request.setCurrentStatus(currentStatus.toString());
         return request;
     }
 
