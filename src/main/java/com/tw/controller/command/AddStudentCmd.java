@@ -19,7 +19,7 @@ import static java.lang.String.format;
 
 public class AddStudentCmd implements Command {
 
-    private Service service = new Service();
+    private Service service = Service.getInstance();
 
     @Override
     public Response exec(Request request) {

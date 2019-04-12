@@ -6,8 +6,10 @@ import com.tw.view.AddStudentPage;
 import com.tw.view.PrintReportPage;
 import com.tw.view.MenuPage;
 
-import static com.tw.controller.Status.*;
+import static com.tw.controller.Status.ADD_STUDENT;
 import static com.tw.controller.Status.EXIT;
+import static com.tw.controller.Status.MENU;
+import static com.tw.controller.Status.PRINT_REPORT;
 
 public class SelectMenuCmd implements Command {
     @Override

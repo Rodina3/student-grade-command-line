@@ -17,7 +17,7 @@ import static com.tw.controller.Status.HOME;
 import static java.lang.String.format;
 
 public class PrintReportCmd implements Command {
-    private Service service = new Service();
+    private Service service = Service.getInstance();
 
     @Override
     public Response exec(Request request) {

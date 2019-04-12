@@ -9,8 +9,8 @@ public class PrintReportPage {
             + "========================\n"
             + "%s"
             + "========================\n"
-            + "全班总分平均分：%.2f\n"
-            + "全班总分中位数：%.2f\n";
+            + "全班总分平均分: %.2f\n"
+            + "全班总分中位数: %.2f\n";
     public static String RECORD_TEMPLATE = "%s|%d|%d|%d|%d|%.2f|%d\n";
 
 }
