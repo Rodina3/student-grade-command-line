@@ -39,8 +39,10 @@ public class AddStudentCmdTest {
 
         Response response = addStudentCmd.exec(request);
 
-        verify(service).addStudent(argThat(argument -> argument.getStudentNumber().equals("003") &&
-                argument.getName().equals("Linda") && argument.getScores().size() == 4));
+        verify(service).addStudent(argThat(argument ->
+                argument.getStudentNumber().equals("003") && argument.getName().equals("Linda") &&
+                        argument.getGradeBySubject("math") == 89 && argument.getGradeBySubject("chinese") == 100 &&
+                        argument.getGradeBySubject("english") == 90 && argument.getGradeBySubject("programming") == 80));
         assertThat(response.getStatus(), is(Status.HOME.toString()));
         assertThat(response.getPage(), is("学生Linda的成绩被添加\n"));
         assertFalse(response.isInputRequired());

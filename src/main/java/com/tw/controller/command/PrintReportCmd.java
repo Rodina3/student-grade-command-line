@@ -39,15 +39,15 @@ public class PrintReportCmd implements Command {
     }
 
     private String printReport(Report report) {
-        String studentInfo = report.getStudents()
+        String student = report.getStudents()
                 .stream()
                 .map(s -> format(PrintReportPage.RECORD_TEMPLATE, s.getName(),
-                        s.getScores().get(0).getGrade(), s.getScores().get(1).getGrade(),
-                        s.getScores().get(2).getGrade(), s.getScores().get(3).getGrade(),
+                        s.getGradeBySubject("math"), s.getGradeBySubject("chinese"),
+                        s.getGradeBySubject("english"), s.getGradeBySubject("programming"),
                         s.getAverageScore(), s.getTotalScore()))
                 .collect(Collectors.joining());
 
-        return format(PrintReportPage.REPORT_TEMPLATE, studentInfo, report.getAverage(), report.getMedian());
+        return format(PrintReportPage.REPORT_TEMPLATE, student, report.getAverage(), report.getMedian());
     }
 
 

@@ -20,6 +20,14 @@ public class Student {
         this.averageScore = (double) totalScore / scores.size();
     }
 
+    public int getGradeBySubject(String subject) {
+        return scores.stream()
+                .filter(s -> s.getSubject().equals(subject))
+                .findFirst()
+                .get()
+                .getGrade();
+    }
+
     public String getStudentNumber() {
         return studentNumber;
     }
@@ -36,9 +44,6 @@ public class Student {
         this.name = name;
     }
 
-    public List<Score> getScores() {
-        return scores;
-    }
 
     public void setScores(List<Score> scores) {
         this.scores = scores;

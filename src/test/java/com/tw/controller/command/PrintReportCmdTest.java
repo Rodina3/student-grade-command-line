@@ -91,10 +91,10 @@ public class PrintReportCmdTest {
 //    }
 //
     private Student buildOneStudent() {
-        Score math = new Score("数学", 75);
-        Score chinese = new Score("语文", 95);
-        Score english = new Score("英语", 80);
-        Score programming = new Score("编程", 80);
+        Score math = new Score("math", 75);
+        Score chinese = new Score("chinese", 95);
+        Score english = new Score("english", 80);
+        Score programming = new Score("programming", 80);
         return new Student("001", "Bob", Arrays.asList(math, chinese, english, programming));
     }
 

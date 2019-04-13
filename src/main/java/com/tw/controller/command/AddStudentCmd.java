@@ -11,6 +11,7 @@ import com.tw.view.AddStudentPage;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static com.tw.controller.Status.ADD_STUDENT;
@@ -51,16 +52,27 @@ public class AddStudentCmd implements Command {
             studentInfo.remove(0);
 
             List<Score> scores = studentInfo.stream()
-                    .map(s -> {
-                        String[] split = s.split(": ");
-                        return new Score(split[0], Integer.parseInt(split[1]));
-                    }).collect(Collectors.toList());
+                    .map(this::getScore)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
 
             student.setScores(scores);
             return student;
         } catch (Exception ex) {
             throw new InputErrorException("Student info input error");
         }
+    }
+
+    private Score getScore(String str) {
+        Score score;
+        String[] split = str.split(": ");
+        String subject = Score.convertSubjectToEnglish(split[0]);
+        if (subject.isEmpty()) {
+            score = null;
+        } else {
+            score = new Score(subject, Integer.parseInt(split[1]));
+        }
+        return score;
     }
 
 }
