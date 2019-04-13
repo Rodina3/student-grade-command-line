@@ -6,6 +6,12 @@ public class Response {
     private String page;
     private boolean inputRequired;
 
+    public Response(String status, String page, boolean inputRequired) {
+        this.status = status;
+        this.page = page;
+        this.inputRequired = inputRequired;
+    }
+
     public String getStatus() {
         return status;
     }

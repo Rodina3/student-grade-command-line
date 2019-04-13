@@ -1,6 +1,5 @@
 package com.tw.controller.command;
 
-import com.tw.controller.Status;
 import com.tw.controller.dto.Request;
 import com.tw.controller.dto.Response;
 import com.tw.controller.exception.InputErrorException;
@@ -14,6 +13,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static com.tw.controller.Status.HOME;
+import static com.tw.controller.Status.PRINT_REPORT;
 import static java.lang.String.format;
 
 public class PrintReportCmd implements Command {
@@ -25,20 +25,15 @@ public class PrintReportCmd implements Command {
     }
 
     public Response printReport(String input) {
-        Response response = new Response();
+        Response response;
 
         try {
             List<String> sNumbers = parseSNumbers(input);
             Report report = service.getReport(sNumbers);
-
-            response.setPage(printReport(report));
-            response.setStatus(HOME.toString());
-            response.setInputRequired(false);
+            response = new Response(HOME.toString(), printReport(report), false);
 
         } catch (Exception ex) {
-            response.setPage(PrintReportPage.ERROR_PROMPT);
-            response.setStatus(Status.PRINT_REPORT.toString());
-            response.setInputRequired(true);
+            response = new Response(PRINT_REPORT.toString(), PrintReportPage.ERROR_PROMPT, true);
         }
         return response;
     }

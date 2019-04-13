@@ -28,18 +28,14 @@ public class AddStudentCmd implements Command {
 
 
     public Response addStudent(String input) {
-        Response response = new Response();
+        Response response;
         try {
             Student student = parseStudent(input);
             service.addStudent(student);
-            response.setPage(format(AddStudentPage.SUCCESS_TEMPLATE, student.getName()));
-            response.setStatus(HOME.toString());
-            response.setInputRequired(false);
+            response = new Response(HOME.toString(), format(AddStudentPage.SUCCESS_TEMPLATE, student.getName()), false);
 
         } catch (InputErrorException ex) {
-            response.setPage(AddStudentPage.ERROR_PROMPT);
-            response.setStatus(ADD_STUDENT.toString());
-            response.setInputRequired(true);
+            response = new Response(ADD_STUDENT.toString(), AddStudentPage.ERROR_PROMPT, true);
         }
 
         return response;
