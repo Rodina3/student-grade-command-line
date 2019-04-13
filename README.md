@@ -122,3 +122,8 @@
 4. [Git 参考手册](http://gitref.org/zh/index.html)
 5. [Junit](http://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions)
 6. [Mockito](http://site.mockito.org/)
+
+
+## 测试数据
+> Bob, 001, 数学: 90, 英语: 90, 语文: 90, 编程: 90  
+> Linda, 002, 数学: 100, 英语: 100, 语文: 100, 编程: 100
